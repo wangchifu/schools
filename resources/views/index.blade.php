@@ -8,7 +8,7 @@
 </style>
 <section class="py-1">
     <div class="px-4 px-lg-5">
-        資料更新：{{ $data_time }} <a href="{{ route('refresh') }}" class="btn btn-primary btn-sm">更新資料</a>
+        資料更新：{{ $data_time }} <a href="{{ route('refresh') }}" class="btn btn-primary btn-sm">手動更新</a>
         <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{ route('index') }}">學校</a>
