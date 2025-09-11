@@ -38,13 +38,13 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>鄉鎮市</th>
-                        <th>學校名稱</th>
-                        <th>學校代碼</th>
-                        <th>學校類別</th>
-                        <th>地址</th>
-                        <th>電話</th>
-                        <th>網站</th>
+                        <th nowrap>鄉鎮市</th>
+                        <th nowrap>學校名稱</th>
+                        <th nowrap>學校代碼</th>
+                        <th nowrap>學校類別</th>
+                        <th nowrap>地址</th>
+                        <th nowrap>電話</th>
+                        <th nowrap>網站</th>
                     </tr>
                 </thead>            
                 <tbody id="school_list">
@@ -64,15 +64,15 @@
 
                                 <tr>
                                     <td>{{ $n }}</td>
-                                    <td>{{ $k1 }}</td>
-                                    <td>{{ $v3['schoolName'] }}</td>
-                                    <td>{{ $k3 }}</td>
-                                    <td>{{ $k2 }}</td>
+                                    <td nowrap>{{ $k1 }}</td>
+                                    <td nowrap>{{ $v3['schoolName'] }}</td>
+                                    <td nowrap>{{ $k3 }}</td>
+                                    <td nowrap>{{ $k2 }}</td>
                                     <td></td>
                                     <td></td>                                                                
-                                    <td>
+                                    <td nowrap>
                                         @if(isset($school2web[$k3]))                                         
-                                            <a href="https://{{ $school2web[$k3] }}" target="_blank">學校網站</a>
+                                            <a href="https://{{ $school2web[$k3] }}" target="_blank">網站</a>
                                         @endif
                                     </td>
                                 </tr>

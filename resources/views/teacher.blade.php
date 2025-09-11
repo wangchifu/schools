@@ -38,18 +38,18 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>鄉鎮市</th>
-                        <th>學校名稱</th>
-                        <th>學校代碼</th>
-                        <th>學校類別</th>
-                        <th>校長</th>
-                        <th>男教師</th>
-                        <th>女教師</th>
-                        <th>護理師</th>
-                        <th>職員</th>
-                        <th>工友</th>                    
-                        <th>警衛</th>  
-                        <th>小計</th>                  
+                        <th nowrap>鄉鎮市</th>
+                        <th nowrap>學校名稱</th>
+                        <th nowrap>學校代碼</th>
+                        <th nowrap>學校類別</th>
+                        <th nowrap>校長</th>
+                        <th nowrap>男教師</th>
+                        <th nowrap>女教師</th>
+                        <th nowrap>護理師</th>
+                        <th nowrap>職員</th>
+                        <th nowrap>工友</th>                    
+                        <th nowrap>警衛</th>  
+                        <th nowrap>小計</th>                  
                     </tr>
                 </thead>
                 <tbody id="school_list">
@@ -70,10 +70,10 @@
 
                                 <tr>
                                     <td>{{ $n }}</td>
-                                    <td>{{ $k1 }}</td>
-                                    <td>{{ $v3['schoolName'] }}</td>
-                                    <td>{{ $k3 }}</td>
-                                    <td>{{ $k2 }}</td>
+                                    <td nowrap>{{ $k1 }}</td>
+                                    <td nowrap>{{ $v3['schoolName'] }}</td>
+                                    <td nowrap>{{ $k3 }}</td>
+                                    <td nowrap>{{ $k2 }}</td>
                                     <td>
                                         @if(isset($teacher_data[$k3]['校長']))
                                             <?php $total += $teacher_data[$k3]['校長']; ?>
