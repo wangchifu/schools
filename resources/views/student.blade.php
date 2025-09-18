@@ -77,7 +77,33 @@
                     </tr>
                 </thead>
                 <tbody id="school_list">
-                    <?php $n=0; ?>
+                    <?php 
+                        $n=0; 
+                        $t_a1=0;
+                        $t_a2=0;
+                        $t_a3=0;
+                        $t_11=0;
+                        $t_12=0;
+                        $t_13=0;
+                        $t_21=0;
+                        $t_22=0;
+                        $t_23=0;
+                        $t_31=0;
+                        $t_32=0;
+                        $t_33=0;
+                        $t_41=0;
+                        $t_42=0;
+                        $t_43=0;
+                        $t_51=0;
+                        $t_52=0;
+                        $t_53=0;
+                        $t_61=0;
+                        $t_62=0;
+                        $t_63=0;
+                        $t_s1=0;
+                        $t_s2=0;
+                        $t_s3=0;
+                    ?>
                     @foreach($area_array as $k1=>$v1)
                         @foreach($school_data[$k1] as $k2=>$v2)
                             @foreach($v2 as $k3=>$v3)
@@ -94,18 +120,29 @@
                                     <td>{{ $n }}</td>
                                     <td>{{ $k1 }}</td>
                                     <td nowrap>{{ $v3['schoolName'] }}</td>                                
-                                    <td>{{ $v3['totalNum'] }}</td>
-                                    <td>{{ $v3['boyNum'] }}</td>
-                                    <td>{{ $v3['girlNum'] }}</td>                                    
+                                    <td>
+                                        {{ $v3['totalNum'] }}
+                                        <?php $t_a1+=$v3['totalNum']; ?>
+                                    </td>
+                                    <td>
+                                        {{ $v3['boyNum'] }}
+                                        <?php $t_a2+=$v3['boyNum']; ?>
+                                    </td>
+                                    <td>
+                                        {{ $v3['girlNum'] }}
+                                        <?php $t_a3+=$v3['girlNum']; ?>
+                                    </td>                                    
                                     <td>
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][1]))                                                
                                                 {{ $details[$k3][1]['total_class'] }}
+                                                <?php $t_11+=$details[$k3][1]['total_class']; ?>
                                             @endif
                                         @endif
                                         @if($k2=="國民中學")
                                             @if(isset($details[$k3][7]))
                                                 {{ $details[$k3][7]['total_class'] }}
+                                                <?php $t_11+=$details[$k3][7]['total_class']; ?>
                                             @endif
                                         @endif                                        
                                     </td>
@@ -113,11 +150,13 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][1]))                                                
                                             {{ $details[$k3][1]['boy'] }}
+                                            <?php $t_12+=$details[$k3][1]['boy']; ?>
                                             @endif
                                         @endif
                                         @if($k2=="國民中學")
                                             @if(isset($details[$k3][7]))                                                
                                             {{ $details[$k3][7]['boy'] }}
+                                            <?php $t_12+=$details[$k3][7]['boy']; ?>
                                             @endif
                                         @endif
                                     </td>                                    
@@ -125,11 +164,13 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][1]))                                                
                                             {{ $details[$k3][1]['girl'] }}
+                                            <?php $t_13+=$details[$k3][1]['girl']; ?>
                                             @endif
                                         @endif
                                         @if($k2=="國民中學")
                                             @if(isset($details[$k3][7]))                                                
                                             {{ $details[$k3][7]['girl'] }}
+                                            <?php $t_13+=$details[$k3][7]['girl']; ?>
                                             @endif
                                         @endif
                                     </td>
@@ -137,11 +178,13 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][2]))                                                
                                                 {{ $details[$k3][2]['total_class'] }}
+                                                <?php $t_21+=$details[$k3][2]['total_class']; ?>
                                             @endif
                                         @endif
                                         @if($k2=="國民中學")
                                             @if(isset($details[$k3][8]))
                                                 {{ $details[$k3][8]['total_class'] }}
+                                                <?php $t_21+=$details[$k3][8]['total_class']; ?>
                                             @endif
                                         @endif                                        
                                     </td>
@@ -149,11 +192,13 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][2]))                                                
                                             {{ $details[$k3][2]['boy'] }}
+                                            <?php $t_22+=$details[$k3][2]['boy']; ?>
                                             @endif
                                         @endif
                                         @if($k2=="國民中學")
                                             @if(isset($details[$k3][8]))                                                
                                             {{ $details[$k3][8]['boy'] }}
+                                            <?php $t_22+=$details[$k3][8]['boy']; ?>
                                             @endif
                                         @endif
                                     </td>                                    
@@ -161,11 +206,13 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][2]))                                                
                                             {{ $details[$k3][2]['girl'] }}
+                                            <?php $t_23+=$details[$k3][2]['girl']; ?>
                                             @endif
                                         @endif
                                         @if($k2=="國民中學")
                                             @if(isset($details[$k3][8]))                                                
                                             {{ $details[$k3][8]['girl'] }}
+                                            <?php $t_23+=$details[$k3][8]['girl']; ?>
                                             @endif
                                         @endif
                                     </td>
@@ -173,11 +220,13 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][3]))                                                
                                                 {{ $details[$k3][3]['total_class'] }}
+                                                <?php $t_31+=$details[$k3][3]['total_class']; ?>
                                             @endif
                                         @endif
                                         @if($k2=="國民中學")
                                             @if(isset($details[$k3][9]))
                                                 {{ $details[$k3][9]['total_class'] }}
+                                                <?php $t_31+=$details[$k3][9]['total_class']; ?>
                                             @endif
                                         @endif                                        
                                     </td>
@@ -185,11 +234,13 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][3]))                                                
                                             {{ $details[$k3][3]['boy'] }}
+                                            <?php $t_32+=$details[$k3][3]['boy']; ?>
                                             @endif
                                         @endif
                                         @if($k2=="國民中學")
                                             @if(isset($details[$k3][9]))                                                
                                             {{ $details[$k3][9]['boy'] }}
+                                            <?php $t_32+=$details[$k3][9]['boy']; ?>
                                             @endif
                                         @endif
                                     </td>                                    
@@ -197,11 +248,13 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][3]))                                                
                                             {{ $details[$k3][3]['girl'] }}
+                                            <?php $t_33+=$details[$k3][3]['girl']; ?>
                                             @endif
                                         @endif
                                         @if($k2=="國民中學")
                                             @if(isset($details[$k3][9]))                                                
                                             {{ $details[$k3][9]['girl'] }}
+                                            <?php $t_33+=$details[$k3][9]['girl']; ?>
                                             @endif
                                         @endif
                                     </td>
@@ -209,6 +262,7 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][4]))                                                
                                                 {{ $details[$k3][4]['total_class'] }}
+                                                <?php $t_41+=$details[$k3][4]['total_class']; ?>
                                             @endif
                                         @endif                                                            
                                     </td>
@@ -216,6 +270,7 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][4]))                                                
                                             {{ $details[$k3][4]['boy'] }}
+                                            <?php $t_42+=$details[$k3][4]['boy']; ?>
                                             @endif
                                         @endif
                                     </td>                                    
@@ -223,6 +278,7 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][4]))                                                
                                             {{ $details[$k3][4]['girl'] }}
+                                            <?php $t_43+=$details[$k3][4]['girl']; ?>
                                             @endif
                                         @endif
                                     </td>
@@ -230,6 +286,7 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][5]))                                                
                                                 {{ $details[$k3][5]['total_class'] }}
+                                                <?php $t_51+=$details[$k3][5]['total_class']; ?>
                                             @endif
                                         @endif                                                            
                                     </td>
@@ -237,6 +294,7 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][5]))                                                
                                             {{ $details[$k3][5]['boy'] }}
+                                            <?php $t_52+=$details[$k3][5]['boy']; ?>
                                             @endif
                                         @endif
                                     </td>                                    
@@ -244,6 +302,7 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][5]))                                                
                                             {{ $details[$k3][5]['girl'] }}
+                                            <?php $t_53+=$details[$k3][5]['girl']; ?>
                                             @endif
                                         @endif
                                     </td>
@@ -251,6 +310,7 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][6]))                                                
                                                 {{ $details[$k3][6]['total_class'] }}
+                                                <?php $t_61+=$details[$k3][6]['total_class']; ?>
                                             @endif
                                         @endif                                                            
                                     </td>
@@ -258,6 +318,7 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][6]))                                                
                                             {{ $details[$k3][6]['boy'] }}
+                                            <?php $t_62+=$details[$k3][6]['boy']; ?>
                                             @endif
                                         @endif
                                     </td>                                    
@@ -265,28 +326,61 @@
                                         @if($k2=="國民小學")
                                             @if(isset($details[$k3][6]))                                                
                                             {{ $details[$k3][6]['girl'] }}
+                                            <?php $t_63+=$details[$k3][6]['girl']; ?>
                                             @endif
                                         @endif
                                     </td>
                                     <td>
                                         @if(isset($details[$k3][99]))                                                
                                             {{ $details[$k3][99]['total_class'] }}
+                                            <?php $t_s1+=$details[$k3][99]['total_class']; ?>
                                         @endif                                                       
                                     </td>
                                     <td>
                                         @if(isset($details[$k3][99]))                                                
                                             {{ $details[$k3][99]['boy'] }}
+                                            <?php $t_s2+=$details[$k3][99]['boy']; ?>
                                         @endif
                                     </td>                                    
                                     <td>
                                         @if(isset($details[$k3][99]))                                                
                                             {{ $details[$k3][99]['girl'] }}
+                                            <?php $t_s3+=$details[$k3][99]['girl']; ?>
                                         @endif
                                     </td>
                                 </tr>
                             @endforeach
                         @endforeach
-                    @endforeach                
+                    @endforeach      
+                    <tr>
+                        <td>小計</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $t_a1 }}</td>
+                        <td>{{ $t_a2 }}</td>
+                        <td>{{ $t_a3 }}</td>
+                        <td>{{ $t_11 }}</td>
+                        <td>{{ $t_12 }}</td>
+                        <td>{{ $t_13 }}</td>
+                        <td>{{ $t_21 }}</td>
+                        <td>{{ $t_22 }}</td>
+                        <td>{{ $t_23 }}</td>
+                        <td>{{ $t_31 }}</td>
+                        <td>{{ $t_32 }}</td>
+                        <td>{{ $t_33 }}</td>
+                        <td>{{ $t_41 }}</td>
+                        <td>{{ $t_42 }}</td>
+                        <td>{{ $t_43 }}</td>
+                        <td>{{ $t_51 }}</td>
+                        <td>{{ $t_52 }}</td>
+                        <td>{{ $t_53 }}</td>
+                        <td>{{ $t_61 }}</td>
+                        <td>{{ $t_62 }}</td>
+                        <td>{{ $t_63 }}</td>
+                        <td>{{ $t_s1 }}</td>
+                        <td>{{ $t_s2 }}</td>
+                        <td>{{ $t_s3 }}</td>
+                    </tr>          
                 </tbody>
             </table>
         </div>        

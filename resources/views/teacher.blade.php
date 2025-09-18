@@ -53,7 +53,17 @@
                     </tr>
                 </thead>
                 <tbody id="school_list">
-                    <?php $n=0; ?>
+                    <?php 
+                        $n=0; 
+                        $t1 = 0;
+                        $t2 = 0;
+                        $t3 = 0;
+                        $t4 = 0;
+                        $t5 = 0;
+                        $t6 = 0;
+                        $t7 = 0;
+                        $t8 = 0;
+                    ?>
                     @foreach($area_array as $k1=>$v1)
                         @foreach($school_data[$k1] as $k2=>$v2)
                             @foreach($v2 as $k3=>$v3)
@@ -78,51 +88,74 @@
                                         @if(isset($teacher_data[$k3]['校長']))
                                             <?php $total += $teacher_data[$k3]['校長']; ?>
                                             {{ $teacher_data[$k3]['校長'] }}
+                                            <?php $t1 += $teacher_data[$k3]['校長']; ?>
                                         @endif                                    
                                     </td>
                                     <td>
                                         @if(isset($teacher_data[$k3]['boyNum']))
                                             <?php $total += $teacher_data[$k3]['boyNum']; ?>
                                             {{ $teacher_data[$k3]['boyNum'] }}
+                                            <?php $t2 += $teacher_data[$k3]['boyNum']; ?>
                                         @endif
                                     </td>                                                                
                                     <td>
                                         @if(isset($teacher_data[$k3]['girlNum']))
                                             <?php $total += $teacher_data[$k3]['girlNum']; ?>
                                             {{ $teacher_data[$k3]['girlNum'] }}
+                                            <?php $t3 += $teacher_data[$k3]['girlNum']; ?>
                                         @endif
                                     </td>
                                     <td>
                                         @if(isset($teacher_data[$k3]['護理師']))
                                             <?php $total += $teacher_data[$k3]['護理師']; ?>
                                             {{ $teacher_data[$k3]['護理師'] }}
+                                            <?php $t4 += $teacher_data[$k3]['護理師']; ?>
                                         @endif
                                     </td>
                                     <td>
                                         @if(isset($teacher_data[$k3]['職員']))
                                             <?php $total += $teacher_data[$k3]['職員']; ?>
                                             {{ $teacher_data[$k3]['職員'] }}
+                                            <?php $t5 += $teacher_data[$k3]['職員']; ?>
                                         @endif
                                     </td>                                                                
                                     <td>
                                         @if(isset($teacher_data[$k3]['工友']))
                                             <?php $total += $teacher_data[$k3]['工友']; ?>
                                             {{ $teacher_data[$k3]['工友'] }}
+                                            <?php $t6 += $teacher_data[$k3]['工友']; ?>
                                         @endif
                                     </td>
                                     <td>
                                         @if(isset($teacher_data[$k3]['警衛']))
                                             <?php $total += $teacher_data[$k3]['警衛']; ?>
                                             {{ $teacher_data[$k3]['警衛'] }}
+                                            <?php $t7 += $teacher_data[$k3]['警衛']; ?>
                                         @endif
                                     </td>
                                     <td>
                                         {{ $total }}
+                                        <?php $t8 += $total; ?>
                                     </td>
                                 </tr>
                             @endforeach
                         @endforeach
-                    @endforeach                
+                    @endforeach     
+                    <tr>
+                        <td>小計</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ $t1 }}</td>
+                        <td>{{ $t2 }}</td>
+                        <td>{{ $t3 }}</td>
+                        <td>{{ $t4 }}</td>
+                        <td>{{ $t5 }}</td>
+                        <td>{{ $t6 }}</td>
+                        <td>{{ $t7 }}</td>
+                        <td>{{ $t8 }}</td>
+                    </tr>           
                 </tbody>
             </table>        
         </div>
