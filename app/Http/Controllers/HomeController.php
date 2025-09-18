@@ -14,7 +14,7 @@ class HomeController extends Controller
         if(empty($school_type)) $school_type='all';
         if(empty(session('school_data_array'))){
             // 1. 取得遠端 JSON
-            $response = Http::get('https://cloudschool.chc.edu.tw/opendata/api/student-number/type/json');
+            $response = Http::get(env('SCHOOL_JSON'));
             if ($response->failed()) {
                 return '抓取失敗';
             }
@@ -27,7 +27,7 @@ class HomeController extends Controller
 
         if(empty(session('teacher_data_array'))){
             // 1. 取得遠端 JSON
-            $response = Http::get('https://cloudschool.chc.edu.tw/opendata/api/teacher-number/type/json');
+            $response = Http::get(env('TEACHER_JSON'));
             if ($response->failed()) {
                 return '抓取失敗';
             }
@@ -37,13 +37,13 @@ class HomeController extends Controller
             session(['teacher_data_array' => $teacher_data_array]);            
         }
 
-        $area_array = config('schools.areas');
+        $area_array = config(env('SELECT_CITY').'.areas');
 
         foreach(session('school_data_array') as $key => $value){
             $school_data[$value['district']][$value['duration']][$key]['schoolName']=$value['schoolName'];
         }        
-        $school2web = config('schools.school2web');                
-
+        $school2web = config(env('SELECT_CITY').'.school2web');                
+        
         $data = [
             'area' => $area,
             'school_type' => $school_type,            
@@ -87,7 +87,7 @@ class HomeController extends Controller
             session(['teacher_data_array' => $teacher_data_array]);            
         }
 
-        $area_array = config('schools.areas');
+        $area_array = config(env('SELECT_CITY').'.areas');
 
         foreach(session('school_data_array') as $key => $value){
             $school_data[$value['district']][$value['duration']][$key]['schoolName']=$value['schoolName'];
@@ -99,7 +99,7 @@ class HomeController extends Controller
                 $teacher_data[$value['schoolNo']][$k]=$v;
             }
         }
-        $school2web = config('schools.school2web');                   
+        $school2web = config(env('SELECT_CITY').'.school2web');                   
 
         $data = [
             'area' => $area,
@@ -123,7 +123,7 @@ class HomeController extends Controller
         if(empty($school_type)) $school_type='all';
         if(empty(session('school_data_array'))){
             // 1. 取得遠端 JSON
-            $response = Http::get('https://cloudschool.chc.edu.tw/opendata/api/student-number/type/json');
+            $response = Http::get(env('SCHOOL_JSON'));
             if ($response->failed()) {
                 return '抓取失敗';
             }
@@ -136,7 +136,7 @@ class HomeController extends Controller
 
         if(empty(session('teacher_data_array'))){
             // 1. 取得遠端 JSON
-            $response = Http::get('https://cloudschool.chc.edu.tw/opendata/api/teacher-number/type/json');
+            $response = Http::get(env('TEACHER_JSON'));
             if ($response->failed()) {
                 return '抓取失敗';
             }
@@ -146,7 +146,7 @@ class HomeController extends Controller
             session(['teacher_data_array' => $teacher_data_array]);            
         }
 
-        $area_array = config('schools.areas');
+        $area_array = config(env('SELECT_CITY').'.areas');
 
         foreach(session('school_data_array') as $key => $value){
             $school_data[$value['district']][$value['duration']][$key]['schoolName']=$value['schoolName'];
@@ -164,7 +164,7 @@ class HomeController extends Controller
             };
             $school_data[$value['district']][$value['duration']][$key]['classNum']=count($details[$key]);
         }        
-        $school2web = config('schools.school2web');
+        $school2web = config(env('SELECT_CITY').'.school2web');
                 
         $data = [
             'area' => $area,
