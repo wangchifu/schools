@@ -50,34 +50,40 @@
                 <tbody id="school_list">
                     <?php $n=0; ?>
                     @foreach($area_array as $k1=>$v1)
-                        @foreach($school_data[$k1] as $k2=>$v2)
-                            @foreach($v2 as $k3=>$v3)
-                            <?php
-                                if($area != 'all'){
-                                    if($k1 != $area) break;
-                                }
-                                if($school_type != 'all'){                                
-                                    if($k2 != $school_type) break;                                
-                                }
-                                $n++; 
-                            ?>
+                        @if(isset($school_data[$k1])) 
+                            @foreach($school_data[$k1] as $k2=>$v2)
+                                @foreach($v2 as $k3=>$v3)
+                                <?php
+                                    if($area != 'all'){
+                                        if($k1 != $area) break;
+                                    }
+                                    if($school_type != 'all'){                                
+                                        if($k2 != $school_type) break;                                
+                                    }
+                                    $n++; 
+                                ?>
 
-                                <tr>
-                                    <td>{{ $n }}</td>
-                                    <td nowrap>{{ $k1 }}</td>
-                                    <td nowrap>{{ $v3['schoolName'] }}</td>
-                                    <td nowrap>{{ $k3 }}</td>
-                                    <td nowrap>{{ $k2 }}</td>
-                                    <td></td>
-                                    <td></td>                                                                
-                                    <td nowrap>
-                                        @if(isset($school2web[$k3]))                                         
-                                            <a href="https://{{ $school2web[$k3] }}" target="_blank">網站</a>
-                                        @endif
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>{{ $n }}</td>
+                                        <td nowrap>{{ $k1 }}</td>
+                                        <td nowrap>{{ $v3['schoolName'] }}</td>
+                                        <td nowrap>{{ $k3 }}</td>
+                                        <td nowrap>{{ $k2 }}</td>
+                                        <td nowrap>
+                                            @if(isset($address_array[$k3]))
+                                                {{ $address_array[$k3] }}
+                                            @endif
+                                        </td>
+                                        <td></td>                                                                
+                                        <td nowrap>
+                                            @if(isset($school2web[$k3]))                                         
+                                                <a href="https://{{ $school2web[$k3] }}" target="_blank">網站</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
                             @endforeach
-                        @endforeach
+                        @endif
                     @endforeach                
                 </tbody>
             </table>

@@ -38,6 +38,7 @@ class HomeController extends Controller
         }
 
         $area_array = config(env('SELECT_CITY').'.areas');
+        $address_array = config(env('SELECT_CITY').'.school_address');
 
         foreach(session('school_data_array') as $key => $value){
             $school_data[$value['district']][$value['duration']][$key]['schoolName']=$value['schoolName'];
@@ -49,6 +50,7 @@ class HomeController extends Controller
             'school_type' => $school_type,            
             'data_time' => session('data_time'),
             'area_array' => $area_array,
+            'address_array' => $address_array,
             'school_data' => $school_data,    
             'school_data_array' => session('school_data_array'),   
             'school2web' => $school2web, 
@@ -185,6 +187,7 @@ class HomeController extends Controller
     {        
         // 清除 session 中的學校資料
         session()->forget('school_data_array');
+        session()->forget('teacher_data_array');        
         session()->forget('data_time');
 
         // 重新導向到首頁，觸發資料重新抓取
