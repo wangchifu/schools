@@ -33,6 +33,9 @@
                 <option value="國民中學" {{ $school_type=="國民中學" ? 'selected' : '' }}>國中</option>
             </select>
         </div>
+        <a href="{{ env('SCHOOL_XLSX') }}" class="btn btn-success btn-sm">
+                XLSX 下載
+        </a>        
         <div class="table-responsive">            
             <table class="table table-bordered table-striped table-hover">
                 <thead>

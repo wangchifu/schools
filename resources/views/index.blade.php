@@ -74,7 +74,11 @@
                                                 {{ $address_array[$k3] }}
                                             @endif
                                         </td>
-                                        <td></td>                                                                
+                                        <td>
+                                            @if(isset($phone_array[$k3]))
+                                                {{ $phone_array[$k3] }}
+                                            @endif                                            
+                                        </td>                                                                
                                         <td nowrap>
                                             @if(isset($school2web[$k3]))                                         
                                                 <a href="https://{{ $school2web[$k3] }}" target="_blank">網站</a>
