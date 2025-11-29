@@ -44,6 +44,7 @@
                         <th nowrap>學校類別</th>
                         <th nowrap>地址</th>
                         <th nowrap>電話</th>
+                        <th nowrap>簡介</th>
                         <th nowrap>網站</th>
                     </tr>
                 </thead>            
@@ -78,7 +79,10 @@
                                             @if(isset($phone_array[$k3]))
                                                 {{ $phone_array[$k3] }}
                                             @endif                                            
-                                        </td>                                                                
+                                        </td>      
+                                        <td>
+                                            <a href="https://newboe.chc.edu.tw/school/{{ $k3 }}/school_show" target="_blank">簡介</a>
+                                        </td>                                                          
                                         <td nowrap>
                                             @if(isset($school2web[$k3]))                                         
                                                 <a href="https://{{ $school2web[$k3] }}" target="_blank">網站</a>
